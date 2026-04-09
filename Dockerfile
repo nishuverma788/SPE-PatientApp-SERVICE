@@ -1,5 +1,5 @@
 #
-FROM openjdk:17
+FROM eclipse-temurin:17-jdk
 EXPOSE 8081
 COPY ./target/patient_service.jar ./
 WORKDIR ./
