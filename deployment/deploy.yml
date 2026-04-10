@@ -6,8 +6,6 @@
     ansible_python_interpreter: /usr/bin/python3
   
   tasks:
-      - name: Starting minikube
-        shell: minikube start
       - name: Pull his service. 
         shell: | 
           eval $(minikube docker-env)
