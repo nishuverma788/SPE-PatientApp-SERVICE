@@ -29,7 +29,7 @@
         kubectl apply -f db-deployment.yaml
         kubectl apply -f app-deployment.yaml
       args:
-        chdir: HIS/backend/
+        chdir: /var/lib/jenkins/workspace/HOSPITAL-WebAPP/SPE-HISApp-SERVICE/target/classes/
 
     # 🔽 Admin Backend
     - name: Deploy Admin Backend
@@ -39,7 +39,7 @@
         kubectl apply -f db-deployment.yaml
         kubectl apply -f app-deployment.yaml
       args:
-        chdir: Central/admin/
+        chdir: /var/lib/jenkins/workspace/MedWeb-CentralServices/SPE-ADMIN-SERVICE/target/classes/
 
     # 🔽 CMS Backend
     - name: Deploy CMS Backend
@@ -49,7 +49,7 @@
         kubectl apply -f db-deployment.yaml
         kubectl apply -f app-deployment.yaml
       args:
-        chdir: Central/cms/
+        chdir: /var/lib/jenkins/workspace/MedWeb-CentralServices/SPE-CMS-SERVICE/target/classes/
 
     # 🔽 Patient Backend
     - name: Deploy Patient Backend
@@ -59,7 +59,7 @@
         kubectl apply -f db-deployment.yaml
         kubectl apply -f app-deployment.yaml
       args:
-        chdir: Patient/backend/
+        chdir: /var/lib/jenkins/workspace/PatientApp/SPE-PatientApp-SERVICE/target/classes/
 
     # 🔽 Patient Frontend
     - name: Deploy Patient Frontend
@@ -67,7 +67,7 @@
         kubectl apply -f patient-frontend-app.yaml
         kubectl apply -f patient-app-ingress.yaml
       args:
-        chdir: Patient/frontend/
+        chdir: /var/lib/jenkins/workspace/PatientApp/SPE-PatientApp-FRONTEND/
 
     # 🔽 HIS Frontend
     - name: Deploy HIS Frontend
@@ -75,4 +75,4 @@
         kubectl apply -f his-frontend-app.yaml
         kubectl apply -f his-app-ingress.yaml
       args:
-        chdir: HIS/frontend/
+        chdir: /var/lib/jenkins/workspace/HOSPITAL-WebAPP/SPE-HISApp-FRONTEND/
