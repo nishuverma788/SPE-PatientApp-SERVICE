@@ -24,10 +24,10 @@
     # 🔽 HIS Backend
     - name: Deploy HIS Backend
       shell: |
-        kubectl apply -f mysql-secret.yaml
-        kubectl apply -f mysql-configMap.yaml
-        kubectl apply -f db-deployment.yaml
-        kubectl apply -f app-deployment.yaml
+        kubectl apply -f mysql-secret.yaml  --validate=false
+        kubectl apply -f mysql-configMap.yaml --validate=false
+        kubectl apply -f db-deployment.yaml --validate=false
+        kubectl apply -f app-deployment.yaml --validate=false
       args:
         chdir: /var/lib/jenkins/workspace/HOSPITAL-WebAPP/SPE-HISApp-SERVICE/target/classes/
       environment:
@@ -36,10 +36,10 @@
           # 🔽 Admin Backend
     - name: Deploy Admin Backend
       shell: |
-        kubectl apply -f mysql-secret.yaml
-        kubectl apply -f mysql-configMap.yaml
-        kubectl apply -f db-deployment.yaml
-        kubectl apply -f app-deployment.yaml
+        kubectl apply -f mysql-secret.yaml --validate=false
+        kubectl apply -f mysql-configMap.yaml --validate=false
+        kubectl apply -f db-deployment.yaml --validate=false
+        kubectl apply -f app-deployment.yaml --validate=false
       args:
         chdir: /var/lib/jenkins/workspace/MedWeb-CentralServices/SPE-ADMIN-SERVICE/target/classes/
       environment:
@@ -48,10 +48,10 @@
     # 🔽 CMS Backend
     - name: Deploy CMS Backend
       shell: |
-        kubectl apply -f mysql-secret.yaml
-        kubectl apply -f mysql-configMap.yaml
-        kubectl apply -f db-deployment.yaml
-        kubectl apply -f app-deployment.yaml
+        kubectl apply -f mysql-secret.yaml --validate=false
+        kubectl apply -f mysql-configMap.yaml --validate=false
+        kubectl apply -f db-deployment.yaml --validate=false
+        kubectl apply -f app-deployment.yaml --validate=false
       args:
         chdir: /var/lib/jenkins/workspace/MedWeb-CentralServices/SPE-CMS-SERVICE/target/classes/
       environment:
@@ -60,10 +60,10 @@
     # 🔽 Patient Backend
     - name: Deploy Patient Backend
       shell: |
-        kubectl apply -f mysql-secret.yaml
-        kubectl apply -f mysql-configMap.yaml
-        kubectl apply -f db-deployment.yaml
-        kubectl apply -f app-deployment.yaml
+        kubectl apply -f mysql-secret.yaml --validate=false
+        kubectl apply -f mysql-configMap.yaml --validate=false
+        kubectl apply -f db-deployment.yaml --validate=false
+        kubectl apply -f app-deployment.yaml --validate=false
       args:
         chdir: /var/lib/jenkins/workspace/PatientApp/SPE-PatientApp-SERVICE/target/classes/
       environment:
@@ -72,8 +72,8 @@
     # 🔽 Patient Frontend
     - name: Deploy Patient Frontend
       shell: |
-        kubectl apply -f patient-frontend-app.yaml
-        kubectl apply -f patient-app-ingress.yaml
+        kubectl apply -f patient-frontend-app.yaml --validate=false
+        kubectl apply -f patient-app-ingress.yaml --validate=false
       args:
         chdir: /var/lib/jenkins/workspace/PatientApp/SPE-PatientApp-FRONTEND/
       environment:
@@ -82,8 +82,8 @@
     # 🔽 HIS Frontend
     - name: Deploy HIS Frontend
       shell: |
-        kubectl apply -f his-frontend-app.yaml
-        kubectl apply -f his-app-ingress.yaml
+        kubectl apply -f his-frontend-app.yaml --validate=false
+        kubectl apply -f his-app-ingress.yaml --validate=false
       args:
         chdir: /var/lib/jenkins/workspace/HOSPITAL-WebAPP/SPE-HISApp-FRONTEND/
       environment:
