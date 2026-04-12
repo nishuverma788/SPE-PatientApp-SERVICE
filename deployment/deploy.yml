@@ -30,8 +30,10 @@
         kubectl apply -f app-deployment.yaml
       args:
         chdir: /var/lib/jenkins/workspace/HOSPITAL-WebAPP/SPE-HISApp-SERVICE/target/classes/
-
-    # 🔽 Admin Backend
+      environment:
+        KUBECONFIG: "{{ lookup('env','HOME') }}/.kube/config"
+    
+          # 🔽 Admin Backend
     - name: Deploy Admin Backend
       shell: |
         kubectl apply -f mysql-secret.yaml
@@ -40,6 +42,8 @@
         kubectl apply -f app-deployment.yaml
       args:
         chdir: /var/lib/jenkins/workspace/MedWeb-CentralServices/SPE-ADMIN-SERVICE/target/classes/
+      environment:
+        KUBECONFIG: "{{ lookup('env','HOME') }}/.kube/config"
 
     # 🔽 CMS Backend
     - name: Deploy CMS Backend
@@ -50,6 +54,8 @@
         kubectl apply -f app-deployment.yaml
       args:
         chdir: /var/lib/jenkins/workspace/MedWeb-CentralServices/SPE-CMS-SERVICE/target/classes/
+      environment:
+        KUBECONFIG: "{{ lookup('env','HOME') }}/.kube/config"
 
     # 🔽 Patient Backend
     - name: Deploy Patient Backend
@@ -60,6 +66,8 @@
         kubectl apply -f app-deployment.yaml
       args:
         chdir: /var/lib/jenkins/workspace/PatientApp/SPE-PatientApp-SERVICE/target/classes/
+      environment:
+        KUBECONFIG: "{{ lookup('env','HOME') }}/.kube/config"
 
     # 🔽 Patient Frontend
     - name: Deploy Patient Frontend
@@ -68,6 +76,8 @@
         kubectl apply -f patient-app-ingress.yaml
       args:
         chdir: /var/lib/jenkins/workspace/PatientApp/SPE-PatientApp-FRONTEND/
+      environment:
+        KUBECONFIG: "{{ lookup('env','HOME') }}/.kube/config"
 
     # 🔽 HIS Frontend
     - name: Deploy HIS Frontend
@@ -76,3 +86,5 @@
         kubectl apply -f his-app-ingress.yaml
       args:
         chdir: /var/lib/jenkins/workspace/HOSPITAL-WebAPP/SPE-HISApp-FRONTEND/
+      environment:
+        KUBECONFIG: "{{ lookup('env','HOME') }}/.kube/config"    
